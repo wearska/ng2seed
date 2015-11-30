@@ -5,7 +5,8 @@ import {NameList} from '../../services/name_list';
 @Component({
   selector: 'about',
   templateUrl: './components/about/about.html',
-  directives: [CORE_DIRECTIVES]
+  directives: [CORE_DIRECTIVES],
+  styleUrls: ['./components/about/about.css']
 })
 export class AboutCmp {
   constructor(public list: NameList) {

@@ -19,6 +19,9 @@ export const ASSETS_SRC           = `${APP_SRC}/assets/**/*`;
 export const TOOLS_DIR            = 'tools';
 export const TEST_DEST            = 'test';
 export const DOCS_DEST            = 'docs';
+export const APP_BUILD            = 'build';
+export const STYLES_BUILD         = `${APP_BUILD}/styles`;
+export const SCRIPTS_BUILD        = `${APP_BUILD}/scripts`;
 export const APP_DEST             = `dist/${ENV}`;
 export const ASSETS_DEST          = `${APP_DEST}/assets`;
 export const CSS_DEST             = `${APP_DEST}/css`;
@@ -50,8 +53,17 @@ export const DEV_DEPENDENCIES = [
   { src: 'bootstrap/dist/fonts/glyphicons-halflings-regular.woff',  dest: FONTS_DEST},
   { src: 'bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', dest: FONTS_DEST}
 ];
+export const BUILD_DEPENDENCIES = [
+  // Css
+  { src: 'styles/app.css', dest: STYLES_BUILD, inject: true  },
+  { src: 'styles/vendor.css', dest: STYLES_BUILD, inject: 'vendor'  },
+  // Js
+  { src: 'scripts/app.js', dest: SCRIPTS_BUILD, inject: true },
+  { src: 'scripts/vendor.js', dest: SCRIPTS_BUILD, inject: 'vendor' },
+];
 
 DEV_DEPENDENCIES.forEach(d => d.src = require.resolve(d.src));
+// BUILD_DEPENDENCIES.forEach(d => d.src = require.resolve(d.src));
 
 export const APP_ASSETS = [
   { src: `${ASSETS_DEST}/main.css`, inject: true, dest: ASSETS_DEST }

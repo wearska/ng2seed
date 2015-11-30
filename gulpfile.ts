@@ -72,3 +72,15 @@ gulp.task('docs', done =>
 // Build prod.
 // To be implemented (https://github.com/mgechev/angular2-seed/issues/58)
 // Will start implementation when Angular 2 will get close to a stable release.
+
+
+// --------------
+// Build dev.
+gulp.task('build', done =>
+  runSequence(
+              'build.css.prod',
+              'build.js.prod',
+              'build.js.vendor.prod',
+              'build.js.bootstrap.prod',
+              'build.index.prod',
+              done));

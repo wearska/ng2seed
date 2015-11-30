@@ -33,6 +33,7 @@ node_modules
 .vscode
 
 dist
+build
 dev
 docs
 lib
